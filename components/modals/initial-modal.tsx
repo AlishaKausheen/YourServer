@@ -12,7 +12,17 @@ import {
     DialogTitle,
 } from "@/components/ui/dialog"
 
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage
+} from "@/components/ui/form"
 
+import { Input } from "@/components/ui/input"; 
+import { Button } from "@/components/ui/button";9
 
 
 const formSchema = z.object({
@@ -49,6 +59,36 @@ export const InitialModal = () => {
 
                     </DialogDescription>
                 </DialogHeader>
+                <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                        <div className="space-y-8 px-6">
+                            <div className="flex items-center justify-center text-center">
+                              TODO: Image Upload
+                            </div>
+                            <FormField
+                                control={form.control}
+                                name="name"
+                                render={({field})=>(
+                                    <FormItem>
+                                        <FormLabel className="uppercase text-xs font-bold
+                                         text-zinc-500 dark:text-secondary/70">
+                                            Server name 
+                                        </FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                disabled={isLoading}
+                                                className="bg-zinc-300/50 border-0 
+                                                focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                                                placeholder="Enter server name"
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                 </FormItem> 
+                                )}
+                            />
+                        </div>
+                  </form>
+                </Form>
         </DialogContent>
         </Dialog>
     )
