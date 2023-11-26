@@ -17,7 +17,7 @@ export const FileUpload = ({
     endpoint
 }: FileUploadProps) => {
     const fileType = value?.split(".").pop();
-    if (value && fileType != "pdf") {//so its an image
+    if (value && fileType !== "pdf") {//so its an image
         return (
             <div className="relative h-20 w-20">
                 <Image
